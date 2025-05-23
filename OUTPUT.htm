@@ -1,0 +1,3076 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OUTPUT.htm</title>
+<meta charset="utf-8"/>
+<style>
+.details {visibility:hidden;}
+.workbookSyntaxBlock {background-color:#f2f2f2;margin:20px 0;padding:12px 0;} .workbookSyntaxBlock p { margin:0 0;}
+.workbookRichTextBlock {background-color:#f2f2f2;margin:20px 0;padding:12px 0;} .workbookRichTextBlock p { margin:0 0;}
+.logItem {margin: 16px 0;font-family: monospace;}
+.procedureTitle{color: #1d3649;font-weight: 600;font-size: 20px;line-height: 24px;font-family: monospace;}
+.pivot{color:#264A60;background-color:#FFFFFF;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#E0E0E0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#F9F9FB;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#F9F9FB;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #AEAEAE;}
+.hDR{border-top:1px none #AEAEAE;}
+.vCR{border-left:1px none #AEAEAE;}
+.vDR{border-left:1px none #AEAEAE;}
+.hCC{border-bottom:1px none #AEAEAE;}
+.hDC{border-bottom:1px none #AEAEAE;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #AEAEAE;}
+.pivot{margin: 80px 0;}
+.pivot thead.tr.th {padding:0px;border-spacing:0px}
+.hal{text-align:left} .hac{text-align:center} .har{text-align:right}
+.val{vertical-align:left} .vac{vertical-align:center} .var{vertical-align:right}
+</style>
+</head>
+<body>
+<p class="procedureTitle"><head><style type="text/css">p{color:0;font-family:SansSerif;font-size:14pt;font-style:normal;font-weight:bold;text-decoration:none}</style></head><BR>Nominal&nbsp;Regression</p>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+<div class="itemBody">
+<table summary="Notes, table, 0 levels of column headers and 2 levels of row headers, table with 3 columns and 15 rows" style="width:471px" class="default PivotTable" aria-label="Notes" role="complementary" data-lookName="default" data-rowLabelWidth="2" data-colLabelHeight="0" data-NumRows="14" data-NumCols="1" data-rowLabels="Corner" data-decimal-char="," data-col-labels="" data-row-labels="Output Created ;Comments ;Input Data; Active Dataset; Filter; Weight; Split File; N of Rows in Working Data File;Missing Value Handling Definition of Missing; Cases Used;Syntax ;Resources Processor Time; Elapsed Time;Variables Created PCP_2" data-layer-dimension="" data-column-dimension="" data-row-dimension="Contents;" data-maxColWidth="122">
+<caption class="title" style="width:471px">Notes<span class="details">Notes, table, 0 levels of column headers and 2 levels of row headers, table with 3 columns and 15 rows</span></caption>
+<tbody class="PivotBody defaultLayer innerFrameBd">
+<tr>
+<th class="rowLabels dataAreaTop role3" colspan="2">Output Created</th>
+<td class=" o dataAreaTop dataAreaLeft">14-MAY-2025 13:54:36</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role3" colspan="2">Comments</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">&nbsp;</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role2" rowspan="6">Input</th>
+<th class="rowLabels hCR vCR role3">Data</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">C:\Users\jerek\Documents\My Library\OPETUS\Kultut_Ope\_Tutkimus &amp; kirjoitus\legitrel\OHJELMAT 2023\Pol-o_multinom_R\ohjelmat 3-legit std.sav</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Active Dataset</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">DataSet1</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Filter</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">&lt;none&gt;</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Weight</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">&lt;none&gt;</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Split File</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">&lt;none&gt;</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">N of Rows in Working Data File</th>
+<td class=" e dataAreaLeft hCR">638</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role2" rowspan="2">Missing Value Handling</th>
+<th class="rowLabels hCR vCR role3">Definition of Missing</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">User-defined missing values are treated as missing.</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Cases Used</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">Statistics are based on all cases with valid data for all variables in the model.</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role3" colspan="2">Syntax</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">NOMREG legitimation (BASE='banal_pres' ORDER=ASCENDING) WITH Zp_age Zgaltan_y Zseat_y Zlr_combined<br>  /CRITERIA CIN(95) DELTA(0) MXITER(100) MXSTEP(5) CHKSEP(20) LCONVERGE(0) PCONVERGE(0.000001)<br>    SINGULAR(0.00000001)<br>  /MODEL=| FSTEP=Zp_age Zgaltan_y Zseat_y Zlr_combined Zp_age*Zgaltan_y Zp_age*Zseat_y<br>    Zp_age*Zlr_combined Zgaltan_y*Zseat_y Zgaltan_y*Zlr_combined Zseat_y*Zlr_combined<br>  /STEPWISE=PIN(.05) POUT(0.1) MINEFFECT(0) RULE(SINGLE) ENTRYMETHOD(LR) REMOVALMETHOD(LR)<br>  /INTERCEPT=INCLUDE<br>  /PRINT=PARAMETER SUMMARY LRT CPS STEP MFI<br>  /SAVE PCPROB.</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role2" rowspan="2">Resources</th>
+<th class="rowLabels hCR vCR role3">Processor Time</th>
+<td class=" e dataAreaLeft hCR">00:00:00,13</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Elapsed Time</th>
+<td class=" o dataAreaLeft hCR">00:00:00,12</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role2">Variables Created</th>
+<th class="rowLabels hCR vCR role3">PCP_2</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">Estimated Classification Probability for the Predicted Category</td>
+</tr>
+<tr>
+<td  style="width:149px;padding:0px;border-spacing:0px"></td>
+<td  style="width:160px;padding:0px;border-spacing:0px"></td>
+<td  style="width:162px;padding:0px;border-spacing:0px"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,1,11,0,1" data-cols="2,2" data-heights="27,0,36,244,37" data-widths="263,426" data-curCounts="11,2" data-curSizess="11,2">
+<caption colspan="4">Case Processing Summary</caption>
+<thead>
+<tr><th class="cornerLabels" colspan="2">&nbsp;</th><th>N</th><th>Marginal Percentage</th></tr>
+</thead>
+<tbody data-rect="0,10,0,1">
+<tr><th rowspan="7" style="min-width:126px">Legitimation Frame</th><th style="min-width:137px">banal_pres</th><td style="min-width:67px">38</td><td style="min-width:96px">6,0%</td></tr>
+<tr><th>denying_spec_status</th><td>68</td><td>10,7%</td></tr>
+<tr><th>equality</th><td>124</td><td>19,4%</td></tr>
+<tr><th>prot_spec_status</th><td>110</td><td>17,2%</td></tr>
+<tr><th>publ_utility</th><td>119</td><td>18,7%</td></tr>
+<tr><th>threat&amp;govern</th><td>89</td><td>13,9%</td></tr>
+<tr><th>values&amp;culture</th><td>90</td><td>14,1%</td></tr>
+<tr><th colspan="2">Valid</th><td>638</td><td>100,0%</td></tr>
+<tr><th colspan="2">Missing</th><td>0</td><td class=" hal">&nbsp;</td></tr>
+<tr><th colspan="2">Total</th><td>638</td><td class=" hal">&nbsp;</td></tr>
+<tr><th colspan="2">Subpopulation</th><td title="a. The dependent variable has only one value observed in 42 (39,3%) subpopulations.">107<sup>a</sup></td><td class=" hal">&nbsp;</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="4">a.&nbsp;The dependent variable has only one value observed in 42 (39,3%) subpopulations.</td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,2,8,1,2" data-cols="2,6" data-heights="27,0,74,416,61" data-widths="102,552" data-curCounts="8,6" data-curSizess="8,6">
+<caption colspan="8">Step Summary</caption>
+<thead>
+<tr><th class="cornerLabels" rowspan="2" colspan="2">Model</th><th rowspan="2">Action</th><th rowspan="2">Effect(s)</th><th>Model Fitting Criteria</th><th colspan="2">Effect Selection Tests</th></tr>
+<tr><th>-2 Log Likelihood</th><th title="a. The chi-square for entry is based on the likelihood ratio test.
+b. The chi-square for removal is based on the likelihood ratio test.">Chi-Square<sup>a,b</sup></th><th>df</th><th>Sig.</th></tr>
+</thead>
+<tbody data-rect="0,7,0,5">
+<tr><th style="min-width:54px">Step 0</th><th style="min-width:48px">0</th><td class=" hal" style="min-width:62px">Entered</td><td class=" hal" style="min-width:96px">Intercept</td><td style="min-width:96px">1291,124</td><td style="min-width:96px">.</td><td class=" hal" style="min-width:50px">&nbsp;</td><td class=" hal" style="min-width:50px">&nbsp;</td></tr>
+<tr><th>Step 1</th><th>1</th><td class=" hal">Entered</td><td class=" hal">GAL-TAN (Z-score)</td><td>1113,843</td><td>177,281</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Step 2</th><th>2</th><td class=" hal">Entered</td><td class=" hal">Party Age (Z-score)</td><td>1011,589</td><td>102,253</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Step 3</th><th>3</th><td class=" hal">Entered</td><td class=" hal">Share of Seats (Z-score)</td><td>966,032</td><td>45,557</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Step 4</th><th>4</th><td class=" hal">Entered</td><td class=" hal">Party Age (Z-score) * GAL-TAN (Z-score)</td><td>944,926</td><td>21,106</td><td>6</td><td>,002</td></tr>
+<tr><th>Step 5</th><th>5</th><td class=" hal">Entered</td><td class=" hal">GAL-TAN (Z-score) * Share of Seats (Z-score)</td><td>928,294</td><td>16,632</td><td>6</td><td>,011</td></tr>
+<tr><th>Step 6</th><th>6</th><td class=" hal">Entered</td><td class=" hal">Party Age (Z-score) * Share of Seats (Z-score)</td><td>911,925</td><td>16,369</td><td>6</td><td>,012</td></tr>
+<tr><th>Step 7</th><th>7</th><td class=" hal">Entered</td><td class=" hal">Left-Right (combined, Z-score)</td><td>893,925</td><td>18,000</td><td>6</td><td>,006</td></tr>
+</tbody>
+<tfoot>
+<tr><td class="caption" colspan="8">Stepwise Method: Forward Stepwise</td></tr>
+<tr><td colspan="8">a.&nbsp;The chi-square for entry is based on the likelihood ratio test.</td></tr>
+<tr><td colspan="8">b.&nbsp;The chi-square for removal is based on the likelihood ratio test.</td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,2,2,0,0" data-cols="1,4" data-heights="27,0,72,44,0" data-widths="93,371" data-curCounts="2,4" data-curSizess="2,4">
+<caption colspan="5">Model Fitting Information</caption>
+<thead>
+<tr><th class="cornerLabels" rowspan="2">Model</th><th>Model Fitting Criteria</th><th colspan="2">Likelihood Ratio Tests</th></tr>
+<tr><th>-2 Log Likelihood</th><th>Chi-Square</th><th>df</th><th>Sig.</th></tr>
+</thead>
+<tbody data-rect="0,1,0,3">
+<tr><th style="min-width:93px">Intercept Only</th><td style="min-width:96px">1291,124</td><td class=" hal" style="min-width:82px">&nbsp;</td><td class=" hal" style="min-width:50px">&nbsp;</td><td class=" hal" style="min-width:50px">&nbsp;</td></tr>
+<tr><th>Final</th><td>893,925</td><td>397,199</td><td>42</td><td>&lt;,001</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,0,3,0,0" data-cols="1,1" data-heights="27,0,0,66,0" data-widths="95,162" data-curCounts="3,1" data-curSizess="3,1">
+<caption colspan="2">Pseudo R-Square</caption>
+<thead>
+</thead>
+<tbody data-rect="0,2,0,0">
+<tr><th style="min-width:95px">Cox and Snell</th><td style="min-width:67px">,463</td></tr>
+<tr><th>Nagelkerke</th><td>,474</td></tr>
+<tr><th>McFadden</th><td>,164</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,2,8,1,0" data-cols="1,4" data-heights="27,0,102,236,62" data-widths="160,438" data-curCounts="8,4" data-curSizess="8,4">
+<caption colspan="5">Likelihood Ratio Tests</caption>
+<thead>
+<tr><th class="cornerLabels" rowspan="2">Effect</th><th>Model Fitting Criteria</th><th colspan="2">Likelihood Ratio Tests</th></tr>
+<tr><th>-2 Log Likelihood of Reduced Model</th><th>Chi-Square</th><th>df</th><th>Sig.</th></tr>
+</thead>
+<tbody data-rect="0,7,0,3">
+<tr><th style="min-width:160px">Intercept</th><td style="min-width:96px">928,042</td><td style="min-width:82px">34,117</td><td style="min-width:50px">6</td><td style="min-width:50px">&lt;,001</td></tr>
+<tr><th>Party Age (Z-score)</th><td>925,214</td><td>31,289</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>972,257</td><td>78,332</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>919,259</td><td>25,334</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>911,925</td><td>18,000</td><td>6</td><td>,006</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>908,124</td><td>14,199</td><td>6</td><td>,027</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>914,096</td><td>20,171</td><td>6</td><td>,003</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>911,613</td><td>17,688</td><td>6</td><td>,007</td></tr>
+</tbody>
+<tfoot>
+<tr><td class="caption" colspan="5">The chi-square statistic is the difference in -2 log-likelihoods between the final model and a reduced model. The reduced model is formed by omitting an effect from the final model. The null hypothesis is that all parameters of that effect are 0.</td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,2,48,0,1" data-cols="2,8" data-heights="27,0,57,1416,22" data-widths="297,894" data-curCounts="48,8" data-curSizess="48,8">
+<caption colspan="10">Parameter Estimates</caption>
+<thead>
+<tr><th class="cornerLabels" rowspan="2" colspan="2" title="a. The reference category is: banal_pres.">Legitimation Frame<sup>a</sup></th><th rowspan="2">B</th><th rowspan="2">Std. Error</th><th rowspan="2">Wald</th><th rowspan="2">df</th><th rowspan="2">Sig.</th><th rowspan="2">Exp(B)</th><th>95% Confidence Interval for Exp(B)</th></tr>
+<tr><th>Lower Bound</th><th>Upper Bound</th></tr>
+</thead>
+<tbody data-rect="0,47,0,7">
+<tr><th rowspan="8" style="min-width:137px">denying_spec_status</th><th style="min-width:160px">Intercept</th><td style="min-width:67px">-,107</td><td style="min-width:70px">,361</td><td style="min-width:67px">,089</td><td style="min-width:67px">1</td><td style="min-width:67px">,766</td><td class=" hal" style="min-width:67px">&nbsp;</td><td class=" hal" style="min-width:96px">&nbsp;</td><td class=" hal" style="min-width:96px">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>-,970</td><td>,541</td><td>3,215</td><td>1</td><td>,073</td><td>,379</td><td>,131</td><td>1,094</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>-,475</td><td>,384</td><td>1,533</td><td>1</td><td>,216</td><td>,622</td><td>,293</td><td>1,319</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>,529</td><td>,429</td><td>1,519</td><td>1</td><td>,218</td><td>1,697</td><td>,732</td><td>3,935</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>-,298</td><td>,340</td><td>,769</td><td>1</td><td>,381</td><td>,742</td><td>,381</td><td>1,445</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>-,200</td><td>,457</td><td>,191</td><td>1</td><td>,662</td><td>,819</td><td>,334</td><td>2,006</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-,350</td><td>,359</td><td>,955</td><td>1</td><td>,328</td><td>,704</td><td>,349</td><td>1,423</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>,855</td><td>,529</td><td>2,616</td><td>1</td><td>,106</td><td>2,352</td><td>,834</td><td>6,632</td></tr>
+<tr><th rowspan="8">equality</th><th>Intercept</th><td>,912</td><td>,277</td><td>10,806</td><td>1</td><td>,001</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>,186</td><td>,413</td><td>,204</td><td>1</td><td>,652</td><td>1,205</td><td>,537</td><td>2,705</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>-,820</td><td>,293</td><td>7,840</td><td>1</td><td>,005</td><td>,440</td><td>,248</td><td>,782</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>-,066</td><td>,420</td><td>,025</td><td>1</td><td>,874</td><td>,936</td><td>,411</td><td>2,133</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>,013</td><td>,319</td><td>,002</td><td>1</td><td>,968</td><td>1,013</td><td>,542</td><td>1,894</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>,370</td><td>,310</td><td>1,429</td><td>1</td><td>,232</td><td>1,448</td><td>,789</td><td>2,656</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-,465</td><td>,302</td><td>2,363</td><td>1</td><td>,124</td><td>,628</td><td>,347</td><td>1,136</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>-,604</td><td>,439</td><td>1,897</td><td>1</td><td>,168</td><td>,546</td><td>,231</td><td>1,291</td></tr>
+<tr><th rowspan="8">prot_spec_status</th><th>Intercept</th><td>1,056</td><td>,255</td><td>17,176</td><td>1</td><td>&lt;,001</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>,389</td><td>,393</td><td>,980</td><td>1</td><td>,322</td><td>1,475</td><td>,683</td><td>3,183</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>,998</td><td>,358</td><td>7,786</td><td>1</td><td>,005</td><td>2,712</td><td>1,346</td><td>5,467</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>-,333</td><td>,453</td><td>,540</td><td>1</td><td>,463</td><td>,717</td><td>,295</td><td>1,742</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>-,347</td><td>,382</td><td>,826</td><td>1</td><td>,363</td><td>,707</td><td>,335</td><td>1,493</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>,389</td><td>,340</td><td>1,306</td><td>1</td><td>,253</td><td>1,475</td><td>,757</td><td>2,872</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-,491</td><td>,308</td><td>2,544</td><td>1</td><td>,111</td><td>,612</td><td>,335</td><td>1,119</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>,547</td><td>,601</td><td>,831</td><td>1</td><td>,362</td><td>1,729</td><td>,533</td><td>5,609</td></tr>
+<tr><th rowspan="8">publ_utility</th><th>Intercept</th><td>,883</td><td>,278</td><td>10,054</td><td>1</td><td>,002</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>,751</td><td>,381</td><td>3,889</td><td>1</td><td>,049</td><td>2,119</td><td>1,005</td><td>4,469</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>-,038</td><td>,291</td><td>,017</td><td>1</td><td>,895</td><td>,962</td><td>,544</td><td>1,703</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>-,138</td><td>,432</td><td>,101</td><td>1</td><td>,750</td><td>,871</td><td>,374</td><td>2,033</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>,271</td><td>,327</td><td>,690</td><td>1</td><td>,406</td><td>1,312</td><td>,691</td><td>2,489</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>,755</td><td>,299</td><td>6,371</td><td>1</td><td>,012</td><td>2,128</td><td>1,184</td><td>3,825</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-,178</td><td>,317</td><td>,316</td><td>1</td><td>,574</td><td>,837</td><td>,450</td><td>1,556</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>-,128</td><td>,419</td><td>,093</td><td>1</td><td>,760</td><td>,880</td><td>,387</td><td>1,999</td></tr>
+<tr><th rowspan="8">threat&amp;govern</th><th>Intercept</th><td>,865</td><td>,274</td><td>9,984</td><td>1</td><td>,002</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>,488</td><td>,473</td><td>1,067</td><td>1</td><td>,302</td><td>1,629</td><td>,645</td><td>4,113</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>,812</td><td>,347</td><td>5,480</td><td>1</td><td>,019</td><td>2,252</td><td>1,141</td><td>4,445</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>1,274</td><td>,450</td><td>7,999</td><td>1</td><td>,005</td><td>3,574</td><td>1,478</td><td>8,640</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>-,389</td><td>,337</td><td>1,329</td><td>1</td><td>,249</td><td>,678</td><td>,350</td><td>1,313</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>,735</td><td>,361</td><td>4,150</td><td>1</td><td>,042</td><td>2,086</td><td>1,028</td><td>4,231</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-1,117</td><td>,349</td><td>10,264</td><td>1</td><td>,001</td><td>,327</td><td>,165</td><td>,648</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>-,682</td><td>,524</td><td>1,694</td><td>1</td><td>,193</td><td>,506</td><td>,181</td><td>1,412</td></tr>
+<tr><th rowspan="8">values&amp;culture</th><th>Intercept</th><td>,544</td><td>,288</td><td>3,567</td><td>1</td><td>,059</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>-,650</td><td>,378</td><td>2,957</td><td>1</td><td>,086</td><td>,522</td><td>,249</td><td>1,095</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>,500</td><td>,343</td><td>2,131</td><td>1</td><td>,144</td><td>1,649</td><td>,842</td><td>3,230</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>-,259</td><td>,417</td><td>,387</td><td>1</td><td>,534</td><td>,771</td><td>,341</td><td>1,748</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>,825</td><td>,402</td><td>4,212</td><td>1</td><td>,040</td><td>2,282</td><td>1,038</td><td>5,018</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>-,107</td><td>,326</td><td>,108</td><td>1</td><td>,742</td><td>,898</td><td>,474</td><td>1,701</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>,062</td><td>,300</td><td>,043</td><td>1</td><td>,836</td><td>1,064</td><td>,591</td><td>1,915</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>-,185</td><td>,553</td><td>,112</td><td>1</td><td>,738</td><td>,831</td><td>,281</td><td>2,458</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="10">a.&nbsp;The reference category is: banal_pres.</td></tr>
+</tfoot>
+</table>
+</div>
+</div><p class="procedureTitle"><head><style type="text/css">p{color:0;font-family:SansSerif;font-size:14pt;font-style:normal;font-weight:bold;text-decoration:none}</style></head><BR>Nominal&nbsp;Regression</p>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+<div class="itemBody">
+<table summary="Notes, table, 0 levels of column headers and 2 levels of row headers, table with 3 columns and 21 rows" style="width:471px" class="default PivotTable" aria-label="Notes" role="complementary" data-lookName="default" data-rowLabelWidth="2" data-colLabelHeight="0" data-NumRows="20" data-NumCols="1" data-rowLabels="Corner" data-decimal-char="," data-col-labels="" data-row-labels="Output Created ;Comments ;Input Data; Active Dataset; Filter; Weight; Split File; N of Rows in Working Data File;Missing Value Handling Definition of Missing; Cases Used;Syntax ;Resources Processor Time; Elapsed Time;Variables Created EST1_1; EST2_1; EST3_1; EST4_1; EST5_1; EST6_1; EST7_1" data-layer-dimension="" data-column-dimension="" data-row-dimension="Contents;" data-maxColWidth="122">
+<caption class="title" style="width:471px">Notes<span class="details">Notes, table, 0 levels of column headers and 2 levels of row headers, table with 3 columns and 21 rows</span></caption>
+<tbody class="PivotBody defaultLayer innerFrameBd">
+<tr>
+<th class="rowLabels dataAreaTop role3" colspan="2">Output Created</th>
+<td class=" o dataAreaTop dataAreaLeft">14-MAY-2025 14:02:03</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role3" colspan="2">Comments</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">&nbsp;</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role2" rowspan="6">Input</th>
+<th class="rowLabels hCR vCR role3">Data</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">C:\Users\jerek\Documents\My Library\OPETUS\Kultut_Ope\_Tutkimus &amp; kirjoitus\legitrel\OHJELMAT 2023\Pol-o_multinom_R\ohjelmat 3-legit std.sav</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Active Dataset</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">DataSet1</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Filter</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">&lt;none&gt;</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Weight</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">&lt;none&gt;</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Split File</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">&lt;none&gt;</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">N of Rows in Working Data File</th>
+<td class=" e dataAreaLeft hCR">638</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role2" rowspan="2">Missing Value Handling</th>
+<th class="rowLabels hCR vCR role3">Definition of Missing</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">User-defined missing values are treated as missing.</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Cases Used</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">Statistics are based on all cases with valid data for all variables in the model.</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role3" colspan="2">Syntax</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">NOMREG legitimation (BASE='banal_pres' ORDER=ASCENDING) WITH Zp_age Zgaltan_y Zseat_y Zlr_combined<br>  /CRITERIA CIN(95) DELTA(0) MXITER(100) MXSTEP(5) CHKSEP(20) LCONVERGE(0) PCONVERGE(0.000001)<br>    SINGULAR(0.00000001)<br>  /MODEL=| FSTEP=Zp_age Zgaltan_y Zseat_y Zlr_combined Zp_age*Zgaltan_y Zp_age*Zseat_y<br>    Zp_age*Zlr_combined Zgaltan_y*Zseat_y Zgaltan_y*Zlr_combined Zseat_y*Zlr_combined<br>  /STEPWISE=PIN(.05) POUT(0.1) MINEFFECT(0) RULE(SINGLE) ENTRYMETHOD(LR) REMOVALMETHOD(LR)<br>  /INTERCEPT=INCLUDE<br>  /PRINT=PARAMETER SUMMARY LRT CPS STEP MFI<br>  /SAVE ESTPROB.</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role2" rowspan="2">Resources</th>
+<th class="rowLabels hCR vCR role3">Processor Time</th>
+<td class=" e dataAreaLeft hCR">00:00:00,13</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">Elapsed Time</th>
+<td class=" o dataAreaLeft hCR">00:00:00,12</td>
+</tr>
+<tr>
+<th class="rowLabels hCR role2" rowspan="7">Variables Created</th>
+<th class="rowLabels hCR vCR role3">EST1_1</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">Estimated Cell Probability for Response Category: banal_pres</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">EST2_1</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">Estimated Cell Probability for Response Category: denying_spec_status</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">EST3_1</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">Estimated Cell Probability for Response Category: equality</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">EST4_1</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">Estimated Cell Probability for Response Category: prot_spec_status</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">EST5_1</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">Estimated Cell Probability for Response Category: publ_utility</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">EST6_1</th>
+<td class=" o dataAreaLeft hCR" style="text-align:left;">Estimated Cell Probability for Response Category: threat&amp;govern</td>
+</tr>
+<tr>
+<th class="rowLabels hCR vCR role3">EST7_1</th>
+<td class=" e dataAreaLeft hCR" style="text-align:left;">Estimated Cell Probability for Response Category: values&amp;culture</td>
+</tr>
+<tr>
+<td  style="width:149px;padding:0px;border-spacing:0px"></td>
+<td  style="width:160px;padding:0px;border-spacing:0px"></td>
+<td  style="width:162px;padding:0px;border-spacing:0px"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,1,11,0,1" data-cols="2,2" data-heights="27,0,36,244,37" data-widths="263,426" data-curCounts="11,2" data-curSizess="11,2">
+<caption colspan="4">Case Processing Summary</caption>
+<thead>
+<tr><th class="cornerLabels" colspan="2">&nbsp;</th><th>N</th><th>Marginal Percentage</th></tr>
+</thead>
+<tbody data-rect="0,10,0,1">
+<tr><th rowspan="7" style="min-width:126px">Legitimation Frame</th><th style="min-width:137px">banal_pres</th><td style="min-width:67px">38</td><td style="min-width:96px">6,0%</td></tr>
+<tr><th>denying_spec_status</th><td>68</td><td>10,7%</td></tr>
+<tr><th>equality</th><td>124</td><td>19,4%</td></tr>
+<tr><th>prot_spec_status</th><td>110</td><td>17,2%</td></tr>
+<tr><th>publ_utility</th><td>119</td><td>18,7%</td></tr>
+<tr><th>threat&amp;govern</th><td>89</td><td>13,9%</td></tr>
+<tr><th>values&amp;culture</th><td>90</td><td>14,1%</td></tr>
+<tr><th colspan="2">Valid</th><td>638</td><td>100,0%</td></tr>
+<tr><th colspan="2">Missing</th><td>0</td><td class=" hal">&nbsp;</td></tr>
+<tr><th colspan="2">Total</th><td>638</td><td class=" hal">&nbsp;</td></tr>
+<tr><th colspan="2">Subpopulation</th><td title="a. The dependent variable has only one value observed in 42 (39,3%) subpopulations.">107<sup>a</sup></td><td class=" hal">&nbsp;</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="4">a.&nbsp;The dependent variable has only one value observed in 42 (39,3%) subpopulations.</td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,2,8,1,2" data-cols="2,6" data-heights="27,0,74,416,61" data-widths="102,552" data-curCounts="8,6" data-curSizess="8,6">
+<caption colspan="8">Step Summary</caption>
+<thead>
+<tr><th class="cornerLabels" rowspan="2" colspan="2">Model</th><th rowspan="2">Action</th><th rowspan="2">Effect(s)</th><th>Model Fitting Criteria</th><th colspan="2">Effect Selection Tests</th></tr>
+<tr><th>-2 Log Likelihood</th><th title="a. The chi-square for entry is based on the likelihood ratio test.
+b. The chi-square for removal is based on the likelihood ratio test.">Chi-Square<sup>a,b</sup></th><th>df</th><th>Sig.</th></tr>
+</thead>
+<tbody data-rect="0,7,0,5">
+<tr><th style="min-width:54px">Step 0</th><th style="min-width:48px">0</th><td class=" hal" style="min-width:62px">Entered</td><td class=" hal" style="min-width:96px">Intercept</td><td style="min-width:96px">1291,124</td><td style="min-width:96px">.</td><td class=" hal" style="min-width:50px">&nbsp;</td><td class=" hal" style="min-width:50px">&nbsp;</td></tr>
+<tr><th>Step 1</th><th>1</th><td class=" hal">Entered</td><td class=" hal">GAL-TAN (Z-score)</td><td>1113,843</td><td>177,281</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Step 2</th><th>2</th><td class=" hal">Entered</td><td class=" hal">Party Age (Z-score)</td><td>1011,589</td><td>102,253</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Step 3</th><th>3</th><td class=" hal">Entered</td><td class=" hal">Share of Seats (Z-score)</td><td>966,032</td><td>45,557</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Step 4</th><th>4</th><td class=" hal">Entered</td><td class=" hal">Party Age (Z-score) * GAL-TAN (Z-score)</td><td>944,926</td><td>21,106</td><td>6</td><td>,002</td></tr>
+<tr><th>Step 5</th><th>5</th><td class=" hal">Entered</td><td class=" hal">GAL-TAN (Z-score) * Share of Seats (Z-score)</td><td>928,294</td><td>16,632</td><td>6</td><td>,011</td></tr>
+<tr><th>Step 6</th><th>6</th><td class=" hal">Entered</td><td class=" hal">Party Age (Z-score) * Share of Seats (Z-score)</td><td>911,925</td><td>16,369</td><td>6</td><td>,012</td></tr>
+<tr><th>Step 7</th><th>7</th><td class=" hal">Entered</td><td class=" hal">Left-Right (combined, Z-score)</td><td>893,925</td><td>18,000</td><td>6</td><td>,006</td></tr>
+</tbody>
+<tfoot>
+<tr><td class="caption" colspan="8">Stepwise Method: Forward Stepwise</td></tr>
+<tr><td colspan="8">a.&nbsp;The chi-square for entry is based on the likelihood ratio test.</td></tr>
+<tr><td colspan="8">b.&nbsp;The chi-square for removal is based on the likelihood ratio test.</td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,2,2,0,0" data-cols="1,4" data-heights="27,0,72,44,0" data-widths="93,371" data-curCounts="2,4" data-curSizess="2,4">
+<caption colspan="5">Model Fitting Information</caption>
+<thead>
+<tr><th class="cornerLabels" rowspan="2">Model</th><th>Model Fitting Criteria</th><th colspan="2">Likelihood Ratio Tests</th></tr>
+<tr><th>-2 Log Likelihood</th><th>Chi-Square</th><th>df</th><th>Sig.</th></tr>
+</thead>
+<tbody data-rect="0,1,0,3">
+<tr><th style="min-width:93px">Intercept Only</th><td style="min-width:96px">1291,124</td><td class=" hal" style="min-width:82px">&nbsp;</td><td class=" hal" style="min-width:50px">&nbsp;</td><td class=" hal" style="min-width:50px">&nbsp;</td></tr>
+<tr><th>Final</th><td>893,925</td><td>397,199</td><td>42</td><td>&lt;,001</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,0,3,0,0" data-cols="1,1" data-heights="27,0,0,66,0" data-widths="95,162" data-curCounts="3,1" data-curSizess="3,1">
+<caption colspan="2">Pseudo R-Square</caption>
+<thead>
+</thead>
+<tbody data-rect="0,2,0,0">
+<tr><th style="min-width:95px">Cox and Snell</th><td style="min-width:67px">,463</td></tr>
+<tr><th>Nagelkerke</th><td>,474</td></tr>
+<tr><th>McFadden</th><td>,164</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,2,8,1,0" data-cols="1,4" data-heights="27,0,102,236,62" data-widths="160,438" data-curCounts="8,4" data-curSizess="8,4">
+<caption colspan="5">Likelihood Ratio Tests</caption>
+<thead>
+<tr><th class="cornerLabels" rowspan="2">Effect</th><th>Model Fitting Criteria</th><th colspan="2">Likelihood Ratio Tests</th></tr>
+<tr><th>-2 Log Likelihood of Reduced Model</th><th>Chi-Square</th><th>df</th><th>Sig.</th></tr>
+</thead>
+<tbody data-rect="0,7,0,3">
+<tr><th style="min-width:160px">Intercept</th><td style="min-width:96px">928,042</td><td style="min-width:82px">34,117</td><td style="min-width:50px">6</td><td style="min-width:50px">&lt;,001</td></tr>
+<tr><th>Party Age (Z-score)</th><td>925,214</td><td>31,289</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>972,257</td><td>78,332</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>919,259</td><td>25,334</td><td>6</td><td>&lt;,001</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>911,925</td><td>18,000</td><td>6</td><td>,006</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>908,124</td><td>14,199</td><td>6</td><td>,027</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>914,096</td><td>20,171</td><td>6</td><td>,003</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>911,613</td><td>17,688</td><td>6</td><td>,007</td></tr>
+</tbody>
+<tfoot>
+<tr><td class="caption" colspan="5">The chi-square statistic is the difference in -2 log-likelihoods between the final model and a reduced model. The reduced model is formed by omitting an effect from the final model. The null hypothesis is that all parameters of that effect are 0.</td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,2,48,0,1" data-cols="2,8" data-heights="27,0,57,1416,22" data-widths="297,894" data-curCounts="48,8" data-curSizess="48,8">
+<caption colspan="10">Parameter Estimates</caption>
+<thead>
+<tr><th class="cornerLabels" rowspan="2" colspan="2" title="a. The reference category is: banal_pres.">Legitimation Frame<sup>a</sup></th><th rowspan="2">B</th><th rowspan="2">Std. Error</th><th rowspan="2">Wald</th><th rowspan="2">df</th><th rowspan="2">Sig.</th><th rowspan="2">Exp(B)</th><th>95% Confidence Interval for Exp(B)</th></tr>
+<tr><th>Lower Bound</th><th>Upper Bound</th></tr>
+</thead>
+<tbody data-rect="0,47,0,7">
+<tr><th rowspan="8" style="min-width:137px">denying_spec_status</th><th style="min-width:160px">Intercept</th><td style="min-width:67px">-,107</td><td style="min-width:70px">,361</td><td style="min-width:67px">,089</td><td style="min-width:67px">1</td><td style="min-width:67px">,766</td><td class=" hal" style="min-width:67px">&nbsp;</td><td class=" hal" style="min-width:96px">&nbsp;</td><td class=" hal" style="min-width:96px">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>-,970</td><td>,541</td><td>3,215</td><td>1</td><td>,073</td><td>,379</td><td>,131</td><td>1,094</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>-,475</td><td>,384</td><td>1,533</td><td>1</td><td>,216</td><td>,622</td><td>,293</td><td>1,319</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>,529</td><td>,429</td><td>1,519</td><td>1</td><td>,218</td><td>1,697</td><td>,732</td><td>3,935</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>-,298</td><td>,340</td><td>,769</td><td>1</td><td>,381</td><td>,742</td><td>,381</td><td>1,445</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>-,200</td><td>,457</td><td>,191</td><td>1</td><td>,662</td><td>,819</td><td>,334</td><td>2,006</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-,350</td><td>,359</td><td>,955</td><td>1</td><td>,328</td><td>,704</td><td>,349</td><td>1,423</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>,855</td><td>,529</td><td>2,616</td><td>1</td><td>,106</td><td>2,352</td><td>,834</td><td>6,632</td></tr>
+<tr><th rowspan="8">equality</th><th>Intercept</th><td>,912</td><td>,277</td><td>10,806</td><td>1</td><td>,001</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>,186</td><td>,413</td><td>,204</td><td>1</td><td>,652</td><td>1,205</td><td>,537</td><td>2,705</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>-,820</td><td>,293</td><td>7,840</td><td>1</td><td>,005</td><td>,440</td><td>,248</td><td>,782</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>-,066</td><td>,420</td><td>,025</td><td>1</td><td>,874</td><td>,936</td><td>,411</td><td>2,133</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>,013</td><td>,319</td><td>,002</td><td>1</td><td>,968</td><td>1,013</td><td>,542</td><td>1,894</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>,370</td><td>,310</td><td>1,429</td><td>1</td><td>,232</td><td>1,448</td><td>,789</td><td>2,656</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-,465</td><td>,302</td><td>2,363</td><td>1</td><td>,124</td><td>,628</td><td>,347</td><td>1,136</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>-,604</td><td>,439</td><td>1,897</td><td>1</td><td>,168</td><td>,546</td><td>,231</td><td>1,291</td></tr>
+<tr><th rowspan="8">prot_spec_status</th><th>Intercept</th><td>1,056</td><td>,255</td><td>17,176</td><td>1</td><td>&lt;,001</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>,389</td><td>,393</td><td>,980</td><td>1</td><td>,322</td><td>1,475</td><td>,683</td><td>3,183</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>,998</td><td>,358</td><td>7,786</td><td>1</td><td>,005</td><td>2,712</td><td>1,346</td><td>5,467</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>-,333</td><td>,453</td><td>,540</td><td>1</td><td>,463</td><td>,717</td><td>,295</td><td>1,742</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>-,347</td><td>,382</td><td>,826</td><td>1</td><td>,363</td><td>,707</td><td>,335</td><td>1,493</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>,389</td><td>,340</td><td>1,306</td><td>1</td><td>,253</td><td>1,475</td><td>,757</td><td>2,872</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-,491</td><td>,308</td><td>2,544</td><td>1</td><td>,111</td><td>,612</td><td>,335</td><td>1,119</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>,547</td><td>,601</td><td>,831</td><td>1</td><td>,362</td><td>1,729</td><td>,533</td><td>5,609</td></tr>
+<tr><th rowspan="8">publ_utility</th><th>Intercept</th><td>,883</td><td>,278</td><td>10,054</td><td>1</td><td>,002</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>,751</td><td>,381</td><td>3,889</td><td>1</td><td>,049</td><td>2,119</td><td>1,005</td><td>4,469</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>-,038</td><td>,291</td><td>,017</td><td>1</td><td>,895</td><td>,962</td><td>,544</td><td>1,703</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>-,138</td><td>,432</td><td>,101</td><td>1</td><td>,750</td><td>,871</td><td>,374</td><td>2,033</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>,271</td><td>,327</td><td>,690</td><td>1</td><td>,406</td><td>1,312</td><td>,691</td><td>2,489</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>,755</td><td>,299</td><td>6,371</td><td>1</td><td>,012</td><td>2,128</td><td>1,184</td><td>3,825</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-,178</td><td>,317</td><td>,316</td><td>1</td><td>,574</td><td>,837</td><td>,450</td><td>1,556</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>-,128</td><td>,419</td><td>,093</td><td>1</td><td>,760</td><td>,880</td><td>,387</td><td>1,999</td></tr>
+<tr><th rowspan="8">threat&amp;govern</th><th>Intercept</th><td>,865</td><td>,274</td><td>9,984</td><td>1</td><td>,002</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>,488</td><td>,473</td><td>1,067</td><td>1</td><td>,302</td><td>1,629</td><td>,645</td><td>4,113</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>,812</td><td>,347</td><td>5,480</td><td>1</td><td>,019</td><td>2,252</td><td>1,141</td><td>4,445</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>1,274</td><td>,450</td><td>7,999</td><td>1</td><td>,005</td><td>3,574</td><td>1,478</td><td>8,640</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>-,389</td><td>,337</td><td>1,329</td><td>1</td><td>,249</td><td>,678</td><td>,350</td><td>1,313</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>,735</td><td>,361</td><td>4,150</td><td>1</td><td>,042</td><td>2,086</td><td>1,028</td><td>4,231</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>-1,117</td><td>,349</td><td>10,264</td><td>1</td><td>,001</td><td>,327</td><td>,165</td><td>,648</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>-,682</td><td>,524</td><td>1,694</td><td>1</td><td>,193</td><td>,506</td><td>,181</td><td>1,412</td></tr>
+<tr><th rowspan="8">values&amp;culture</th><th>Intercept</th><td>,544</td><td>,288</td><td>3,567</td><td>1</td><td>,059</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Party Age (Z-score)</th><td>-,650</td><td>,378</td><td>2,957</td><td>1</td><td>,086</td><td>,522</td><td>,249</td><td>1,095</td></tr>
+<tr><th>GAL-TAN (Z-score)</th><td>,500</td><td>,343</td><td>2,131</td><td>1</td><td>,144</td><td>1,649</td><td>,842</td><td>3,230</td></tr>
+<tr><th>Share of Seats (Z-score)</th><td>-,259</td><td>,417</td><td>,387</td><td>1</td><td>,534</td><td>,771</td><td>,341</td><td>1,748</td></tr>
+<tr><th>Left-Right (combined, Z-score)</th><td>,825</td><td>,402</td><td>4,212</td><td>1</td><td>,040</td><td>2,282</td><td>1,038</td><td>5,018</td></tr>
+<tr><th>Party Age (Z-score) * GAL-TAN (Z-score)</th><td>-,107</td><td>,326</td><td>,108</td><td>1</td><td>,742</td><td>,898</td><td>,474</td><td>1,701</td></tr>
+<tr><th>Party Age (Z-score) * Share of Seats (Z-score)</th><td>,062</td><td>,300</td><td>,043</td><td>1</td><td>,836</td><td>1,064</td><td>,591</td><td>1,915</td></tr>
+<tr><th>GAL-TAN (Z-score) * Share of Seats (Z-score)</th><td>-,185</td><td>,553</td><td>,112</td><td>1</td><td>,738</td><td>,831</td><td>,281</td><td>2,458</td></tr>
+</tbody>
+<tfoot>
+<tr><td colspan="10">a.&nbsp;The reference category is: banal_pres.</td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+</body>
+</html>
