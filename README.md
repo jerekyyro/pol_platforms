@@ -1,11 +1,9 @@
 # pol_platforms
-Analyzing Finnish politcal platforms
+Supplementary materials for Hjelm & Kyyrö. (Forthcoming). "Embedded or Embattled? Constructing Legitimate Religion in Finnish Political Party Platforms." _Scandinavian Studies._
 
-View online, or download the corresponding files from the repository:
+Data preparation (R): https://jerekyyro.github.io/extras/Data_preparation_with_R.html
 
-Data preparation: https://jerekyyro.github.io/extras/Data_preparation_with_R.html
-
-Multinomial logistic regression model summary: 
+Multinomial logistic regression model summary (SPSS): 
 https://jerekyyro.github.io/extras/legitrel_platforms_regression.htm
 
-Predicted probabilities: https://jerekyyro.github.io/extras/legitrel_platforms_plotting_predicted_probabilities.html
+Visualizing predicted probabilities (R): https://jerekyyro.github.io/extras/legitrel_platforms_plotting_predicted_probabilities.html
